@@ -1,0 +1,97 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Configuración general con cursor personalizado */
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #000;
+    /* Cursor personalizado: flecha minimalista negra, 16x16 */
+    cursor: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2716%27%20height=%2716%27%20fill=%27black%27%20viewBox=%270%200%2032%2032%27%3E%3Cpath%20d=%27M2%202L30%2016L2%2030Z%27/%3E%3C/svg%3E') 8 8, auto;
+  }
+  
+  /* Aseguramos que los enlaces hereden el cursor personalizado */
+  a {
+    cursor: inherit;
+  }
+  
+  /* Fondo de la imagen centrada */
+  #background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%; /* Un poco más grande para el efecto parallax sin mostrar bordes */
+    height: 110%;
+    background-image: url('images/animeguy.jpg'); /* Asegúrate de que la imagen esté en la carpeta "images" */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+  }
+  
+  /* Contenedor de íconos centrado con efecto de aparición */
+  .social-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+    opacity: 0; /* Inicialmente invisible */
+    animation: appear 1s forwards; /* Animación de aparición */
+  }
+  
+  /* Estilo de cada ícono */
+  .social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .social-link i {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Efecto hover para los íconos */
+  .social-link:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Cambios de color al pasar el mouse */
+  .instagram:hover i { color: #E1306C; }
+  .youtube:hover i   { color: #FF0000; }
+  .steam:hover i     { color: #1B95E0; }
+  .twitch:hover i    { color: #9146FF; }
+  .kick:hover i      { color: #52FA18; }
+  
+  /* Animación de aparición para los íconos */
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
